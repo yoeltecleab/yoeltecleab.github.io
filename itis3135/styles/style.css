@@ -1,0 +1,65 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: auto 0;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(98, 2, 252, 0.5), rgba(46, 111, 5, 0.5));
+}
+
+header {
+    background: linear-gradient(to bottom, rgb(25, 0, 67, 0.8), rgba(29, 81, 0, 0.8));
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+}
+
+main {
+    padding: 20px;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+h1 {
+    font-family: "Bradley Hand", cursive;
+}
+
+h2 {
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #2109bc;
+}
+
+p {
+    color: black;
+}
+
+img {
+    width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
+
+figcaption {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+ul {
+    text-align: left;
+    display: block;
+}
+
+footer {
+    background: linear-gradient(-45deg, rgba(4, 177, 240, 0.5), rgba(119, 249, 66, 0.5));
+    color: white;
+    text-align: center;
+    padding: 10px 0;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+a:hover {
+    color: red;
+}
