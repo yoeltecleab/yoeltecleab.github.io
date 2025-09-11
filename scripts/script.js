@@ -1,0 +1,376 @@
+// Enhanced Theme Manager with 4 themes
+class ThemeManager {
+    constructor() {
+        this.themes = ['blue-dark', 'blue-light', 'green-dark', 'green-light'];
+        this.themeIcons = {
+            'blue-dark': '<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="#3949ab"/><path d="M14 4a10 10 0 1 0 10 10A10 10 0 0 1 14 4z" fill="#fff" opacity="0.2"/></svg>',
+            'blue-light': '<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="#42a5f5"/><g><circle cx="14" cy="14" r="6" fill="#fff"/><g stroke="#ffd600" stroke-width="2"><line x1="14" y1="2" x2="14" y2="7"/><line x1="14" y1="21" x2="14" y2="26"/><line x1="2" y1="14" x2="7" y2="14"/><line x1="21" y1="14" x2="26" y2="14"/><line x1="5.2" y1="5.2" x2="8.5" y2="8.5"/><line x1="19.5" y1="19.5" x2="22.8" y2="22.8"/><line x1="5.2" y1="22.8" x2="8.5" y2="19.5"/><line x1="19.5" y1="8.5" x2="22.8" y2="5.2"/></g></g></svg>',
+            'green-dark': '<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="#388e3c"/><path d="M14 4a10 10 0 1 0 10 10A10 10 0 0 1 14 4z" fill="#fff" opacity="0.2"/></svg>',
+            'green-light': '<svg width="28" height="28" viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg"><circle cx="14" cy="14" r="10" fill="#81c784"/><g><circle cx="14" cy="14" r="6" fill="#fff"/><g stroke="#ffd600" stroke-width="2"><line x1="14" y1="2" x2="14" y2="7"/><line x1="14" y1="21" x2="14" y2="26"/><line x1="2" y1="14" x2="7" y2="14"/><line x1="21" y1="14" x2="26" y2="14"/><line x1="5.2" y1="5.2" x2="8.5" y2="8.5"/><line x1="19.5" y1="19.5" x2="22.8" y2="22.8"/><line x1="5.2" y1="22.8" x2="8.5" y2="19.5"/><line x1="19.5" y1="8.5" x2="22.8" y2="5.2"/></g></g></svg>'
+        };
+        this.currentTheme = this.themes[Math.floor(Math.random() * 4)];
+        this.themeToggle = document.getElementById('themeToggle');
+        this.toggleIcon = document.getElementById('toggleIcon');
+        this.init();
+    }
+
+    init() {
+        this.applyTheme(this.currentTheme);
+        this.themeToggle.addEventListener('click', () => this.cycleTheme());
+        setTimeout(() => {
+            document.body.style.transition = 'all 0.3s ease';
+        }, 100);
+    }
+
+    applyTheme(theme) {
+        const root = document.documentElement;
+        this.themes.forEach((t) => {
+            if (t !== 'blue-dark') {
+                root.removeAttribute('data-theme');
+            }
+        });
+        if (theme === 'blue-dark') {
+            root.removeAttribute('data-theme');
+        } else {
+            root.setAttribute('data-theme', theme);
+        }
+        this.toggleIcon.innerHTML = this.themeIcons[theme];
+        this.currentTheme = theme;
+        localStorage.setItem('theme', theme);
+    }
+
+    cycleTheme() {
+        const currentIndex = this.themes.indexOf(this.currentTheme);
+        const nextIndex = (currentIndex + 1) % this.themes.length;
+        const newTheme = this.themes[nextIndex];
+        this.themeToggle.style.transform = 'scale(0.95) rotate(180deg)';
+        setTimeout(() => {
+            this.themeToggle.style.transform = 'scale(1) rotate(0deg)';
+        }, 200);
+        this.applyTheme(newTheme);
+        this.createThemeRipple();
+    }
+
+    createThemeRipple() {
+        const ripple = document.createElement('div');
+        ripple.style.cssText = `
+                    position: fixed;
+                    top: 50%;
+                    left: 50%;
+                    width: 20px;
+                    height: 20px;
+                    background: var(--accent-color);
+                    border-radius: 50%;
+                    transform: translate(-50%, -50%);
+                    animation: themeRipple 0.8s ease-out;
+                    pointer-events: none;
+                    z-index: 10000;
+                    opacity: 0.6;
+                `;
+
+        document.body.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 800);
+    }
+}
+
+// Typing Animation Manager
+class TypingManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.setupTypingAnimation();
+    }
+
+    setupTypingAnimation() {
+        const title = document.querySelector('.hero-title');
+        const originalText = title.textContent;
+        title.textContent = '';
+
+        let index = 0;
+        const typeSpeed = 100;
+
+        function typeCharacter() {
+            if (index < originalText.length) {
+                title.textContent += originalText.charAt(index);
+                index++;
+                setTimeout(typeCharacter, typeSpeed);
+            }
+        }
+
+        // Start typing animation after a short delay
+        setTimeout(typeCharacter, 500);
+    }
+}
+
+// Floating Particles Manager
+class ParticleManager {
+    constructor() {
+        this.particlesContainer = document.getElementById('particles');
+        this.particleCount = 20;
+        this.init();
+    }
+
+    init() {
+        this.createParticles();
+        this.animateParticles();
+    }
+
+    createParticles() {
+        for (let i = 0; i < this.particleCount; i++) {
+            const particle = document.createElement('div');
+            particle.className = 'particle';
+
+            // Random positioning
+            particle.style.left = Math.random() * 100 + '%';
+            particle.style.top = Math.random() * 100 + '%';
+            particle.style.animationDelay = Math.random() * 6 + 's';
+            particle.style.animationDuration = (Math.random() * 4 + 4) + 's';
+
+            // Random size
+            const size = Math.random() * 4 + 2;
+            particle.style.width = size + 'px';
+            particle.style.height = size + 'px';
+
+            this.particlesContainer.appendChild(particle);
+        }
+    }
+
+    animateParticles() {
+        // Add mouse interaction
+        document.addEventListener('mousemove', (e) => {
+            const particles = document.querySelectorAll('.particle');
+            particles.forEach((particle) => {
+                const rect = particle.getBoundingClientRect();
+                const centerX = rect.left + rect.width / 2;
+                const centerY = rect.top + rect.height / 2;
+
+                const deltaX = e.clientX - centerX;
+                const deltaY = e.clientY - centerY;
+                const distance = Math.sqrt(deltaX * deltaX + deltaY * deltaY);
+
+                if (distance < 100) {
+                    const force = (100 - distance) / 100;
+                    particle.style.transform = `translate(${deltaX * force * 0.1}px, ${deltaY * force * 0.1}px)`;
+                } else {
+                    particle.style.transform = 'translate(0, 0)';
+                }
+            });
+        });
+    }
+}
+
+// Enhanced Animation Manager
+class AnimationManager {
+    constructor() {
+        this.init();
+    }
+
+    init() {
+        this.addDynamicStyles();
+        this.setupScrollAnimations();
+        this.setupMicroInteractions();
+    }
+
+    addDynamicStyles() {
+        const style = document.createElement('style');
+        style.textContent = `
+                    @keyframes themeRipple {
+                        to {
+                            width: 800px;
+                            height: 800px;
+                            opacity: 0;
+                        }
+                    }
+
+                    @keyframes fadeInUp {
+                        from {
+                            opacity: 0;
+                            transform: translateY(30px);
+                        }
+                        to {
+                            opacity: 1;
+                            transform: translateY(0);
+                        }
+                    }
+
+                    @keyframes pulse {
+                        0%, 100% { transform: scale(1); }
+                        50% { transform: scale(1.05); }
+                    }
+                `;
+        document.head.appendChild(style);
+    }
+
+    setupScrollAnimations() {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+                }
+            });
+        }, {threshold: 0.1});
+
+        document.querySelectorAll('.nav-card').forEach((card) => {
+            observer.observe(card);
+        });
+    }
+
+    setupMicroInteractions() {
+        // Profile picture interactions
+        const profilePic = document.getElementById('profilePic');
+        profilePic.addEventListener('click', () => {
+            profilePic.style.animation = 'pulse 0.6s ease';
+            setTimeout(() => {
+                profilePic.style.animation = '';
+            }, 600);
+        });
+
+        // Enhanced card interactions
+        document.querySelectorAll('.nav-card').forEach((card) => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px) rotateY(5deg)';
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateY(0)';
+            });
+        });
+    }
+}
+
+// Smooth scrolling for internal links
+function setupSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Performance monitoring
+function setupPerformanceMonitoring() {
+    if ('performance' in window) {
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                // Use PerformanceNavigationTiming for modern load time measurement
+                const [navigationEntry] = performance.getEntriesByType('navigation');
+                if (navigationEntry) {
+                    const loadTime = navigationEntry.loadEventEnd - navigationEntry.startTime;
+                    console.log(`🚀 Page loaded in ${loadTime}ms`);
+                } else {
+                    // Fallback for browsers that do not support PerformanceNavigationTiming
+                    console.log('🚀 Page loaded (navigation timing not supported)');
+                }
+            }, 0);
+        });
+    }
+}
+
+// Setup Extra Cool Features
+function setupExtraFeatures() {
+    // Add scroll-based parallax effect for particles
+    window.addEventListener('scroll', () => {
+        // Use window.scrollY instead of window.pageYOffset
+        const scrolled = window.scrollY;
+        const parallax = document.getElementById('particles');
+        const speed = scrolled * 0.3;
+
+        if (parallax) {
+            parallax.style.transform = `translateY(${speed}px)`;
+        }
+    });
+
+    // Add rainbow gradient animation to title on hover
+    const style = document.createElement('style');
+    style.textContent = `
+                @keyframes rainbowGlow {
+                    0% { filter: hue-rotate(0deg) brightness(1.2); }
+                    25% { filter: hue-rotate(90deg) brightness(1.3); }
+                    50% { filter: hue-rotate(180deg) brightness(1.4); }
+                    75% { filter: hue-rotate(270deg) brightness(1.3); }
+                    100% { filter: hue-rotate(360deg) brightness(1.2); }
+                }
+
+                .hero-title:hover {
+                    animation: rainbowGlow 2s ease-in-out infinite;
+                    cursor: pointer;
+                }
+
+                @keyframes buttonPulse {
+                    0%, 100% { box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); }
+                    50% { box-shadow: 0 8px 30px var(--hover-glow); }
+                }
+
+                .theme-toggle:hover {
+                    animation: buttonPulse 1.5s ease-in-out infinite;
+                }
+
+                @keyframes shake {
+                    0%, 100% { transform: translateX(0); }
+                    25% { transform: translateX(-5px); }
+                    75% { transform: translateX(5px); }
+                }
+
+                .profile-pic:active {
+                    animation: shake 0.3s ease-in-out;
+                }
+            `;
+    document.head.appendChild(style);
+
+    // Add click-to-restart typing animation
+    const title = document.querySelector('.hero-title');
+    title.addEventListener('click', () => {
+        new TypingManager();
+    });
+
+    // Add floating effect to cards on load
+    const cards = document.querySelectorAll('.nav-card');
+    cards.forEach((card, index) => {
+        card.style.animationDelay = `${index * 0.2}s`;
+        card.style.animation = 'fadeInUp 0.8s ease forwards';
+    });
+}
+
+// Initialize everything when DOM is loaded
+document.addEventListener('DOMContentLoaded', () => {
+    new ThemeManager();
+    new TypingManager();
+    new ParticleManager();
+    new AnimationManager();
+    setupSmoothScrolling();
+    setupPerformanceMonitoring();
+    setupExtraFeatures();
+});
+
+// Keyboard shortcuts
+document.addEventListener('keydown', (e) => {
+    if (e.key === 't' && (e.ctrlKey || e.metaKey)) {
+        e.preventDefault();
+        document.getElementById('themeToggle').click();
+    }
+});
+
+// Enhanced focus management for accessibility
+document.addEventListener('focusin', (e) => {
+    if (e.target.matches('.nav-card, .theme-toggle, .logo-container')) {
+        e.target.style.outline = '3px solid var(--accent-color)';
+        e.target.style.outlineOffset = '4px';
+        e.target.style.boxShadow = '0 0 20px var(--hover-glow)';
+    }
+});
+
+document.addEventListener('focusout', (e) => {
+    if (e.target.matches('.nav-card, .theme-toggle, .logo-container')) {
+        e.target.style.outline = 'none';
+        e.target.style.boxShadow = '';
+    }
+});
