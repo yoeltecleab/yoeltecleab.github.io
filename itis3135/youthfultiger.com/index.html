@@ -1,0 +1,152 @@
+<!doctype html>
+<html data-theme="green-dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width,initial-scale=1" name="viewport"/>
+    <title>Youthful Tiger · Energy Playgrounds</title>
+
+    <!-- Modern font -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700;800&display=swap" rel="stylesheet">
+    <link href="styles/styles.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://lint.page/kit/4d0fe3.js"></script>
+</head>
+<body>
+<header class="nav">
+    <div class="nav-inner">
+        <a class="logo" href="#">
+            <img alt="Youthful Tiger logo" class="logo-img" src="images/tiger-small.png"/>
+            <h1 class="brand">Youthful<span class="accent"> Tiger</span></h1>
+        </a>
+
+        <nav class="links" id="nav-links">
+            <a href="about.html">About</a>
+            <a href="#how">How it works</a>
+            <a href="#impact">Impact</a>
+            <a class="primary" href="#contact">Get Involved</a>
+        </nav>
+    </div>
+</header>
+
+<main>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-copy">
+                <h2>Play that powers the planet</h2>
+                <p class="lede">
+                    Youthful Tiger builds sleek, tech-savvy playgrounds where swings, seesaws and spinners
+                    convert play into clean energy — engaging kids and lighting communities.
+                </p>
+
+                <div class="cta-row">
+                    <a class="btn btn-primary" href="#how">See how it works</a>
+                    <a class="btn btn-ghost" href="#contact">Partner with us</a>
+                </div>
+
+                <ul aria-hidden="true" class="micro">
+                    <li><strong>Instant feedback</strong> — LED Tiger Meter shows energy produced</li>
+                    <li><strong>Local impact</strong> — batteries power school lights & fountains</li>
+                </ul>
+            </div>
+
+            <figure aria-hidden="true" class="hero-media">
+                <img
+                        alt="Children playing on a modern playground at dusk with subtle LED lighting"
+                        height="360"
+                        loading="lazy"
+                        src="images/children-playing.png"
+                        width="360"
+                />
+            </figure>
+        </div>
+    </section>
+
+    <!-- HOW -->
+    <section class="panel alt" id="how">
+        <h3 class="center">How it works</h3>
+        <div class="cards">
+            <article class="card">
+                <div class="icon">⚡</div>
+                <h4>Swings</h4>
+                <p>Pumped dynamos harvest back-and-forth motion into stored energy.</p>
+            </article>
+
+            <article class="card">
+                <div class="icon">↕️</div>
+                <h4>See-Saws</h4>
+                <p>Reciprocating pistons convert vertical motion to charge batteries.</p>
+            </article>
+
+            <article class="card">
+                <div class="icon">⟳</div>
+                <h4>Rotors</h4>
+                <p>Merry-go-round turbines spin to light pathways and feed local needs.</p>
+            </article>
+
+            <article class="card">
+                <div class="icon">🧗</div>
+                <h4>Piezo Nodes</h4>
+                <p>Climb sensors generate micro-charges and teach kids about energy per step.</p>
+            </article>
+        </div>
+    </section>
+
+    <!-- IMPACT -->
+    <section class="panel" id="impact">
+        <div class="impact-grid">
+            <div class="impact-stat">
+                <div class="big">4,200+</div>
+                <div class="label">kWh / year (projected per playground)</div>
+            </div>
+            <div class="impact-stat">
+                <div class="big">1,200</div>
+                <div class="label">kids engaged per site annually</div>
+            </div>
+            <div class="impact-cta">
+                <h4>Ready to bring an Energy Playground to your neighborhood?</h4>
+                <a class="btn btn-primary" href="#contact">Contact us</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="panel contact" id="contact">
+        <div class="contact-inner">
+            <div class="contact-copy">
+                <h3>Partner, sponsor, or pilot a site</h3>
+                <p>We work with municipalities, schools and sponsors to tailor installations and education programs.</p>
+            </div>
+
+            <form action="#" class="contact-form" onsubmit="return false;">
+                <label>
+                    <input name="name" placeholder="Full name" required type="text"/>
+                </label>
+                <label>
+                    <input name="email" placeholder="Email" required type="email"/>
+                </label>
+                <label>
+                    <textarea name="message" placeholder="Tell us about your park / school / interest"
+                              rows="4"></textarea>
+                </label>
+                <div class="form-row">
+                    <button class="btn btn-primary" type="submit">Send message</button>
+                    <button class="btn btn-ghost" type="button">Download one-pager (PDF)</button>
+                </div>
+            </form>
+        </div>
+    </section>
+</main>
+
+<footer class="site-footer">
+    <div>&copy; <span id="year"></span> Youthful Tiger — Play · Power · Planet</div>
+    <div class="terms"><em>Where Playtime Lights the Way.</em></div>
+</footer>
+
+<script>
+    (function () {
+        // year
+        document.getElementById('year').textContent = new Date().getFullYear().toString()
+    })();
+</script>
+</body>
+</html>
