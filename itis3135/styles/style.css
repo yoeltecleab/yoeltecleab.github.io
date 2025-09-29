@@ -192,6 +192,11 @@ footer nav a:hover {
     box-shadow: 0 4px 16px rgba(59, 130, 246, 0.18);
 }
 
+nav {
+    margin-bottom: 12px;
+    font-size: 1.08rem;
+}
+
 a {
     color: #de103d;
     text-decoration: none;
