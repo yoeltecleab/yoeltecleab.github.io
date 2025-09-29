@@ -94,6 +94,7 @@ p {
     line-height: 1.8;
     margin-bottom: 2em;
     font-weight: 400;
+    text-align: left;
 }
 
 img {
@@ -172,7 +173,7 @@ footer {
     }
 }
 
-footer nav a, footer p {
+footer nav a, footer span {
     color: #fff;
     text-decoration: none;
     font-weight: 600;
@@ -186,7 +187,21 @@ footer nav a, footer p {
     margin-right: 20px;
 }
 
-footer nav a:hover {
+footer span {
+    display: block;
+    margin-top: 12px;
+    font-size: 0.85rem;
+    color: #cbd5e1;
+    border: none;
+    background: transparent;
+}
+
+footer span a {
+    font-size: 0.85rem;
+    color: #cbd5e1;
+}
+
+footer span a:hover {
     color: #fff;
     background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
     box-shadow: 0 4px 16px rgba(59, 130, 246, 0.18);
@@ -204,6 +219,18 @@ a {
     border-radius: 999px;
     padding: 4px 12px;
     font-weight: 500;
+}
+
+a:visited {
+    color: #08ebae;
+}
+
+main a:visited {
+    color: #eb0d27;
+}
+
+a:active {
+    color: #68ee08;
 }
 
 a:hover {
