@@ -239,6 +239,13 @@ a:hover {
     box-shadow: 0 2px 8px rgba(59, 130, 246, 0.10);
 }
 
+.screenshot {
+    width: 100%;
+    max-width: 600px;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(30, 41, 59, 0.13);
+    transition: transform 0.2s, box-shadow 0.2s;
+}
 
 /* Button styles for future use */
 .button, button {
