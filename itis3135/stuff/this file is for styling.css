@@ -1,0 +1,41 @@
+body {
+    background: #fff;
+    color: #000;
+    margin: 37px 5px 100px 80px;
+}
+
+.centered {
+    text-align: center;
+}
+
+.huge-text {
+    font-size: 3.5em;
+}
+
+.bad-border {
+    border-top: 20px dotted red;
+    border-right: 20px double blue;
+    border-bottom: 20px dashed green;
+    border-left: 20px solid orange;
+    padding: 30px;
+    margin: 40px 0 10px 0;
+}
+
+.poor-contrast {
+    background: #e0e0e0;
+    color: #bdbdbd;
+}
+
+.underline {
+    text-decoration: underline;
+}
+
+.bg-yellow {
+    background: yellow;
+}
+
+ul.centered-list {
+    display: table;
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
