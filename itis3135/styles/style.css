@@ -35,12 +35,12 @@ header {
 }
 
 main {
-    padding: 48px 20px 100px 20px;
     max-width: 800px;
-    margin: 32px auto 0 auto;
+    margin: 0 auto;
     border-radius: 32px;
     animation: fadeIn 1.2s;
     text-align: center;
+    width: 90%;
 }
 
 @keyframes fadeIn {
