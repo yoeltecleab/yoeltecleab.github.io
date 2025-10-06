@@ -1,7 +1,14 @@
+:root {
+    --background1: rgba(224, 231, 255, 1);
+    --background1-darker: rgb(201, 212, 251);
+    --background2: rgba(241, 245, 249, 1);
+    --background2-darker: rgb(222, 237, 251);
+}
+
 body {
     font-family: 'Inter', 'Segoe UI', 'Roboto', Arial, sans-serif;
     margin: 0;
-    background: linear-gradient(120deg, #f8fafc 0%, #e0e7ff 100%);
+    background: linear-gradient(120deg, #f8fafc 0%, var(--background1) 100%);
     color: #23272f;
     min-height: 100vh;
     letter-spacing: 0.01em;
@@ -35,12 +42,12 @@ header {
 }
 
 main {
-    max-width: 800px;
-    margin: 0 auto;
+    max-width: 1600px;
     border-radius: 32px;
     animation: fadeIn 1.2s;
     text-align: center;
     width: 90%;
+    margin: 0 auto 120px;
 }
 
 @keyframes fadeIn {
@@ -150,7 +157,7 @@ footer {
     color: #fff;
     text-align: center;
     padding: 24px 0 1px 0;
-    position: fixed;
+    position: static;
     width: 100%;
     bottom: 0;
     left: 0;
@@ -267,6 +274,76 @@ a:hover {
     background: linear-gradient(90deg, #38bdf8 0%, #2563eb 100%);
     box-shadow: 0 4px 16px rgba(59, 130, 246, 0.18);
     transform: translateY(-2px) scale(1.04);
+}
+
+/* Table styles */
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2em 0;
+    background: #fff;
+    box-shadow: 0 2px 12px rgba(30, 41, 59, 0.07);
+    border-radius: 16px;
+    overflow: hidden;
+}
+
+thead th {
+    background: linear-gradient(0deg, #3b82f6 60%, #6366f1 100%);
+    color: #fff;
+    font-weight: 600;
+    padding: 1em 0.5em;
+    border-right: 2px solid var(--background1);
+}
+
+thead th:last-child {
+    border-right: none;
+}
+
+tbody td {
+    padding: 0.75em 0.5em;
+    border: 1px solid #efeff1;
+    text-align: center;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+tbody tr:hover {
+    background: var(--background2);
+    transition: background 0.2s;
+}
+
+table th, table td {
+    font-size: 1em;
+}
+
+tbody tr:nth-child(odd) {
+    background: var(--background1-darker);
+}
+
+tbody tr:nth-child(even) {
+    background: var(--background2-darker);
+}
+
+.group1 td[rowspan], .group3 td[rowspan], .group5 td[rowspan] {
+    background: var(--background1-darker);
+}
+
+.group2 td[rowspan], .group4 td[rowspan], .group6 td[rowspan] {
+    background: var(--background2-darker);
+}
+
+section {
+    margin: 0 auto;
+    max-width: 700px;
+}
+
+section p {
+    text-align: left;
+    font-size: 0.95rem;
+    line-height: 1.7;
+    font-style: italic;
 }
 
 /* Responsive adjustments */
