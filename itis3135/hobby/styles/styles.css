@@ -48,7 +48,7 @@ header img {
     width: auto;
 }
 
-header h1 {
+h1 {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -110,7 +110,6 @@ main {
     max-width: 1200px;
     margin: 0 auto;
     padding: 2rem;
-    width: 100%;
 }
 
 /* Section Styles */
@@ -137,7 +136,7 @@ section.active {
     }
 }
 
-section h2 {
+h2 {
     font-size: 2.5rem;
     margin-bottom: 2rem;
     background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
@@ -171,7 +170,7 @@ section h2 {
     border-color: var(--accent-primary);
 }
 
-.card h3 {
+h3 {
     color: var(--accent-primary);
     margin-bottom: 1rem;
     font-size: 1.5rem;
@@ -203,6 +202,12 @@ figure img {
     object-fit: cover;
     display: block;
     border-bottom: 2px solid var(--accent-primary);
+}
+
+section[id="who"] img {
+    width: 30%;
+    height: auto;
+    margin: 0 auto;
 }
 
 figcaption {
@@ -296,20 +301,12 @@ footer a.design-firm:hover {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.2rem;
-    }
-
     nav {
         flex-direction: column;
     }
 
     .nav-divider {
         display: none;
-    }
-
-    section h2 {
-        font-size: 1.8rem;
     }
 
     .content-grid {

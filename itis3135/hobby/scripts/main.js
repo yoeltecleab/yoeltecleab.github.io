@@ -2,18 +2,18 @@
 const navLinks = document.querySelectorAll('.nav-link');
 const sections = document.querySelectorAll('section');
 
-navLinks.forEach(link => {
+navLinks.forEach((link) => {
     link.addEventListener('click', (e) => {
         e.preventDefault();
         const targetSection = link.getAttribute('data-section');
 
         // Hide all sections
-        sections.forEach(section => {
+        sections.forEach((section) => {
             section.classList.remove('active');
         });
 
         // Remove active class from all nav links
-        navLinks.forEach(navLink => {
+        navLinks.forEach((navLink) => {
             navLink.classList.remove('active');
         });
 
