@@ -795,10 +795,88 @@ h2 {
     text-align: center;
 }
 
-main p {
+main > p {
     text-align: center;
     font-size: 1.1rem;
     color: #475569;
     margin: 16px 0;
+}
+
+/* Project Overview Page Styles */
+h3 {
+    color: #1e293b;
+    font-size: 1.8rem;
+    font-weight: 700;
+    margin-top: 48px;
+    margin-bottom: 24px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #3b82f6;
+}
+
+h4 {
+    color: #334155;
+    font-size: 1.4rem;
+    font-weight: 600;
+    margin-top: 32px;
+    margin-bottom: 16px;
+    padding-left: 12px;
+    border-left: 4px solid #8b5cf6;
+}
+
+section p {
+    text-align: left;
+    line-height: 1.8;
+    margin-bottom: 16px;
+    color: #334155;
+}
+
+section ul {
+    margin-top: 16px;
+    margin-bottom: 24px;
+}
+
+section ul ul {
+    margin-top: 8px;
+    margin-bottom: 8px;
+    background: rgba(255, 255, 255, 0.5);
+    padding: 16px 24px;
+}
+
+section li {
+    margin-bottom: 12px;
+    line-height: 1.7;
+}
+
+section strong {
+    color: #1e293b;
+    font-weight: 600;
+}
+
+section em {
+    color: #64748b;
+    font-style: italic;
+}
+
+/* Figure styling for wireframes and sitemaps */
+section figure {
+    margin: 32px 0;
+    text-align: center;
+}
+
+section figure img {
+    max-width: 100%;
+    height: auto;
+}
+
+section figure figcaption {
+    margin-top: 16px;
+    font-size: 1rem;
+    color: #64748b;
+}
+
+/* Nested list styling */
+section ul li ul li {
+    font-size: 1.05rem;
+    margin-bottom: 8px;
 }
 
