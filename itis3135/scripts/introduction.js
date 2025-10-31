@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const updateButton = document.getElementById("update-introduction");
     const form = document.getElementById("intro-form");
-    const cancelButton = document.getElementById("cancel");
+    const resetButton = document.getElementById("reset-btn");
+    const clearButton = document.getElementById("clear-btn");
     const coursesContainer = document.getElementById("courses-container");
     const addCourseBtn = document.getElementById("add-course-btn");
     let courseCounter = 0;
@@ -19,15 +19,43 @@ document.addEventListener("DOMContentLoaded", () => {
                 <button type="button" class="btn-remove-course" data-course-id="${courseCounter}">× Remove</button>
             </div>
             <label for="course${courseCounter}-code">Course Code: <span class="required">*</span></label>
-            <input id="course${courseCounter}-code" name="course${courseCounter}-code" required type="text" value="${code}">
+            <input id="course${courseCounter}-code" name="course${courseCounter}-code" required type="text" value="${code}" placeholder="e.g., ITIS3135">
             <label for="course${courseCounter}-name">Course Name: <span class="required">*</span></label>
-            <input id="course${courseCounter}-name" name="course${courseCounter}-name" required type="text" value="${name}">
+            <input id="course${courseCounter}-name" name="course${courseCounter}-name" required type="text" value="${name}" placeholder="e.g., Frontend Web App Development">
             <label for="course${courseCounter}-reason">Reason: <span class="required">*</span></label>
-            <textarea id="course${courseCounter}-reason" name="course${courseCounter}-reason" required rows="2">${reason}</textarea>
+            <textarea id="course${courseCounter}-reason" name="course${courseCounter}-reason" required rows="2" placeholder="Why are you taking this course?">${reason}</textarea>
         `;
 
         return courseDiv;
     };
+
+    // Initialize with default courses
+    function initializeDefaultCourses() {
+        const defaultCourses = [
+            {
+                code: "ITIS3135",
+                name: "Frontend Web App Development",
+                reason: "Taking it to gain knowledge in frontend frameworks, so I can build a complete website by myself."
+            },
+            {
+                code: "ITSC3160",
+                name: "Database Design and Implementation",
+                reason: "Taking it to know more about databases and their applications in application development."
+            },
+            {
+                code: "ITCS3153",
+                name: "Introduction to Artificial Intelligence",
+                reason: "Taking it to learn about the evolution of AI, algorithms and how to create one of my own."
+            }
+        ];
+
+        defaultCourses.forEach((course) => {
+            coursesContainer.appendChild(createCourseEntry(course.code, course.name, course.reason));
+        });
+    }
+
+    // Initialize default courses on page load
+    initializeDefaultCourses();
 
     // Renumber courses after removal
     const renumberCourses = () => {
@@ -45,78 +73,47 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     };
 
-    // Pre-fill form with current page content
-    const prefillForm = () => {
-        // Extract name and mascot
-        const nameMascot = document.querySelector("main h2:nth-of-type(2)").textContent;
-        const [name, mascot] = nameMascot.split(" | ");
-        const nameParts = name.trim().split(" ");
+    // Reset button - reset to default values
+    if (resetButton) {
+        resetButton.addEventListener("click", () => {
+            // Reset to default values
+            document.getElementById("first-name").value = "Yoel";
+            document.getElementById("middle-name").value = "";
+            document.getElementById("last-name").value = "Tecleab";
+            document.getElementById("mascot-adjective").value = "Yawning";
+            document.getElementById("mascot-animal").value = "Tiger";
+            document.getElementById("picture-caption").value = "Yoel Tecleab";
+            document.getElementById("personal-background").value = "My hobbies include playing tennis, watching movies and hanging out with friends.";
+            document.getElementById("academic-background").value = "I believe I am senior (confused because I am a part-time student and have no idea) majoring in Computer Science with tentative concentration in AI and Robotics (might end up changing to Software Engineering)";
 
-        document.getElementById("first-name").value = nameParts[0] || "";
-        document.getElementById("middle-name").value = nameParts.length > 2 ? nameParts.slice(1, -1).join(" ") : "";
-        document.getElementById("last-name").value = nameParts[nameParts.length - 1] || "";
+            // Reset file input
+            document.getElementById("picture").value = "";
 
-        const mascotParts = mascot.trim().split(" ");
-        document.getElementById("mascot-adjective").value = mascotParts[0] || "";
-        document.getElementById("mascot-animal").value = mascotParts[1] || "";
+            // Reset courses
+            coursesContainer.innerHTML = "";
+            courseCounter = 0;
+            initializeDefaultCourses();
+        });
+    }
 
-        // Extract backgrounds
-        document.getElementById("personal-background").value =
-            document.querySelector("main ul li:nth-child(1)").textContent.replace("Personal Background:", "").trim();
-        document.getElementById("academic-background").value =
-            document.querySelector("main ul li:nth-child(2)").textContent.replace("Academic Background:", "").trim();
-        document.getElementById("picture-caption").value =
-            document.querySelector("main figcaption").textContent;
+    // Clear button - clear all fields
+    if (clearButton) {
+        clearButton.addEventListener("click", () => {
+            document.getElementById("first-name").value = "";
+            document.getElementById("middle-name").value = "";
+            document.getElementById("last-name").value = "";
+            document.getElementById("mascot-adjective").value = "";
+            document.getElementById("mascot-animal").value = "";
+            document.getElementById("picture-caption").value = "";
+            document.getElementById("personal-background").value = "";
+            document.getElementById("academic-background").value = "";
+            document.getElementById("picture").value = "";
 
-        // Extract and create courses
-        coursesContainer.innerHTML = "";
-        courseCounter = 0;
-
-        const coursesUl = document.querySelector("main ul li:nth-child(3) ul");
-        if (coursesUl) {
-            coursesUl.querySelectorAll("li").forEach((li) => {
-                const boldText = li.querySelector("b");
-                if (boldText) {
-                    const courseInfo = boldText.textContent.trim();
-                    const [code, ...nameParts] = courseInfo.split(" - ");
-                    const courseName = nameParts.join(" - ");
-                    const reason = li.textContent.trim().replace(courseInfo, "").trim();
-
-                    coursesContainer.appendChild(createCourseEntry(code.trim(), courseName.trim(), reason));
-                }
-            });
-        }
-
-        // Ensure at least one course
-        if (courseCounter === 0) {
-            coursesContainer.appendChild(createCourseEntry());
-        }
-    };
-
-    // Initialize update button
-    const initUpdateButton = () => {
-        const btn = document.getElementById("update-introduction");
-        if (btn) {
-            btn.addEventListener("click", () => {
-                prefillForm();
-                form.style.display = "flex";
-                document.body.style.overflow = "hidden";
-            });
-        }
-    };
-
-    // Show form
-    updateButton.addEventListener("click", () => {
-        prefillForm();
-        form.style.display = "flex";
-        document.body.style.overflow = "hidden";
-    });
-
-    // Hide form
-    cancelButton.addEventListener("click", () => {
-        form.style.display = "none";
-        document.body.style.overflow = "auto";
-    });
+            // Clear all courses
+            coursesContainer.innerHTML = "";
+            courseCounter = 0;
+        });
+    }
 
     // Add course
     addCourseBtn.addEventListener("click", () => {
@@ -138,8 +135,7 @@ document.addEventListener("DOMContentLoaded", () => {
         const file = formData.get("picture");
 
         // Handle image
-        const currentImg = document.querySelector("main figure img");
-        let imgSrc = currentImg ? currentImg.src : 'images/Yoel.JPG';
+        let imgSrc = 'images/Yoel.JPG';
         if (file && file.size > 0) {
             imgSrc = URL.createObjectURL(file);
         }
@@ -159,7 +155,7 @@ document.addEventListener("DOMContentLoaded", () => {
             `<li><b>${course.department} - ${course.name}</b> ${course.reason}</li>`
         ).join("");
 
-        // Update page content
+        // Update page content in main
         document.querySelector("main").innerHTML = `
             <h2>Introduction</h2>
             <h2>${fullName} | ${formData.get("mascot-adjective")} ${formData.get("mascot-animal")}</h2>
@@ -174,12 +170,18 @@ document.addEventListener("DOMContentLoaded", () => {
                     <ul>${courseList}</ul>
                 </li>
             </ul>
-            <button id="update-introduction">Update Information</button>
+            <button id="reset-to-form" class="btn-reset">Reset</button>
         `;
 
-        // Reinitialize and hide form
-        initUpdateButton();
+        // Hide form
         form.style.display = "none";
-        document.body.style.overflow = "auto";
+
+        // Add reset functionality
+        const resetBtn = document.getElementById("reset-to-form");
+        if (resetBtn) {
+            resetBtn.addEventListener("click", () => {
+                location.reload();
+            });
+        }
     });
 });

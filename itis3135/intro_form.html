@@ -7,51 +7,18 @@
         <title>Yoel Tecleab | Yawning Tiger | ITIS3135 | Introduction Form</title>
         <link href="styles/style.css" rel="stylesheet">
         <script crossorigin="anonymous" src="https://lint.page/kit/4d0fe3.js"></script>
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+              rel="stylesheet">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     </head>
     <body>
         <div data-include="components/header.html"></div>
         <main>
-            <h2>Introduction</h2>
-            <h2>Yoel Tecleab | Yawning Tiger</h2>
-            <figure>
-                <img alt="Portrait of Yoel Tecleab" src="images/Yoel.JPG">
-                <figcaption>Yoel Tecleab</figcaption>
-            </figure>
-            <ul>
-                <li>
-                    <b>Personal Background:</b> My hobbies include playing tennis, watching movies and hanging out with
-                    friends.
-                </li>
-                <li>
-                    <b>Academic Background:</b> I believe I am senior (confused because I am a part-time student and
-                    have no
-                    idea) majoring in Computer Science with tentative concentration in AI and Robotics (might end up
-                    changing to
-                    Software Engineering)
-                </li>
-                <li><b>Courses:</b>
-                    <ul>
-                        <li>
-                            <b>ITIS3135 - Frontend Web App Development</b>
-                            Taking it to gain knowledge in frontend frameworks, so I can build a complete website by
-                            myself.
-                        </li>
-                        <li>
-                            <b>ITSC3160 - Database Design and Implementation</b>
-                            Taking it to know more about databases and their applications in application development.
-                        </li>
-                        <li>
-                            <b>ITCS3153 - Introduction to Artificial Intelligence</b>
-                            Taking it to learn about the evolution of AI, algorithms and how to create one of my own.
-                        </li>
-                    </ul>
-                </li>
-            </ul>
-            <button id="update-introduction">Update Information</button>
+            <h2>Introduction Form</h2>
         </main>
-        <form id="intro-form" style="display: none;">
+        <form id="intro-form">
             <div class="form-content">
-                <h3>Update Your Information</h3>
+                <h3>Please submit the form below</h3>
 
                 <div class="form-section">
                     <h4>Personal Details</h4>
@@ -99,15 +66,18 @@
                 </div>
 
                 <div class="form-buttons">
-                    <button class="btn-save" type="submit">Save</button>
-                    <button class="btn-cancel" id="cancel" type="button">Cancel</button>
-                    <button class="btn-clear" type="reset">Clear</button>
+                    <button class="btn-save" type="submit">Submit</button>
+                    <button class="btn-cancel" id="reset-btn" type="button">Reset</button>
+                    <button class="btn-clear" id="clear-btn" type="button">Clear</button>
+                    <button class="btn-generate-json" id="generate-json-btn" type="button">Generate JSON</button>
+                    <button class="btn-generate-html" id="generate-html-btn" type="button">Generate HTML</button>
                 </div>
             </div>
         </form>
         <div data-include="components/footer.html"></div>
         <script src="scripts/include.js"></script>
         <script src="scripts/introduction.js"></script>
+        <script src="scripts/generate_json.js"></script>
+        <script src="scripts/generate_html.js"></script>
     </body>
 </html>
-
