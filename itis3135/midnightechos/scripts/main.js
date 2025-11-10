@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const currentPage = window.location.pathname.split('/').pop() || 'index.html';
     const navLinks = document.querySelectorAll('nav a');
 
-    navLinks.forEach(link => {
+    navLinks.forEach((link) => {
         if (link.getAttribute('href') === currentPage) {
             link.classList.add('active');
         }
@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Simple form validation
     const forms = document.querySelectorAll('form');
-    forms.forEach(form => {
+    forms.forEach((form) => {
         form.addEventListener('submit', function (e) {
             e.preventDefault();
             alert('ደሓን መፃእኩም - Welcome! Your message has been received.');

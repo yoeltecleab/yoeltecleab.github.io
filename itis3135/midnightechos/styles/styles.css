@@ -31,10 +31,11 @@ header {
     align-items: center;
 }
 
-.logo h1 {
-    color: #5e72e4;
-    font-size: 1.8rem;
+h1 {
     font-weight: bold;
+    font-size: 3rem;
+    color: #5e72e4;
+    margin-bottom: 1rem;
 }
 
 nav {
@@ -80,12 +81,6 @@ main {
     background: #16213e;
     border-radius: 10px;
     margin-bottom: 3rem;
-}
-
-.hero h1 {
-    font-size: 3rem;
-    color: #5e72e4;
-    margin-bottom: 1rem;
 }
 
 .hero p {
@@ -167,7 +162,7 @@ main {
     border: 1px solid #2a3f5f;
 }
 
-.card h3 {
+h3 {
     color: #5e72e4;
     margin-bottom: 1rem;
 }
@@ -237,11 +232,6 @@ footer {
     gap: 2rem;
 }
 
-.footer-section h3 {
-    color: #5e72e4;
-    margin-bottom: 1rem;
-}
-
 .footer-section ul {
     list-style: none;
 }
@@ -305,10 +295,6 @@ footer {
     nav a {
         padding: 1rem;
         border-bottom: 1px solid #2a3f5f;
-    }
-
-    .hero h1 {
-        font-size: 2rem;
     }
 
     .cards-grid {
