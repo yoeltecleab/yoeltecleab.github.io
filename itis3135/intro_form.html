@@ -1,83 +1,98 @@
 <!doctype html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
-        <meta content="ie=edge" http-equiv="X-UA-Compatible">
-        <title>Yoel Tecleab | Yawning Tiger | ITIS3135 | Introduction Form</title>
-        <link href="styles/style.css" rel="stylesheet">
-        <script crossorigin="anonymous" src="https://lint.page/kit/4d0fe3.js"></script>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
-              rel="stylesheet">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
-    </head>
-    <body>
-        <div data-include="components/header.html"></div>
-        <main>
-            <h2>Introduction Form</h2>
-        </main>
-        <form id="intro-form">
-            <div class="form-content">
-                <h3>Please submit the form below</h3>
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <title>Yoel Tecleab | Yawning Tiger | ITIS3135 | Introduction Form</title>
+    <link href="styles/style.css" rel="stylesheet">
+    <script crossorigin="anonymous" src="https://lint.page/kit/4d0fe3.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css"
+          rel="stylesheet">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+</head>
+<body>
+<div data-include="components/header.html"></div>
+<main>
+    <h2>Introduction Form</h2>
+</main>
+<form id="intro-form">
+    <div class="form-content">
+        <h3>Please submit the form below</h3>
 
-                <div class="form-section">
-                    <h4>Personal Details</h4>
-                    <label for="first-name">First Name: <span class="required">*</span></label>
-                    <input id="first-name" name="first-name" required type="text" value="Yoel">
+        <div class="form-section">
+            <h4>Personal Details</h4>
+            <label for="first-name">First Name: <span class="required">*</span></label>
+            <input id="first-name" name="first-name" required type="text" value="Yoel">
 
-                    <label for="middle-name">Middle Name:</label>
-                    <input id="middle-name" name="middle-name" type="text">
+            <label for="middle-name">Middle Name:</label>
+            <input id="middle-name" name="middle-name" type="text">
 
-                    <label for="last-name">Last Name: <span class="required">*</span></label>
-                    <input id="last-name" name="last-name" required type="text" value="Tecleab">
-                </div>
+            <label for="last-name">Last Name: <span class="required">*</span></label>
+            <input id="last-name" name="last-name" required type="text" value="Tecleab">
+        </div>
 
-                <div class="form-section">
-                    <h4>Mascot Information</h4>
-                    <label for="mascot-adjective">Mascot Adjective: <span class="required">*</span></label>
-                    <input id="mascot-adjective" name="mascot-adjective" required type="text" value="Yawning">
+        <div class="form-section">
+            <h4>Mascot Information</h4>
+            <label for="mascot-adjective">Mascot Adjective: <span class="required">*</span></label>
+            <input id="mascot-adjective" name="mascot-adjective" required type="text" value="Yawning">
 
-                    <label for="mascot-animal">Mascot Animal: <span class="required">*</span></label>
-                    <input id="mascot-animal" name="mascot-animal" required type="text" value="Tiger">
-                </div>
+            <label for="mascot-animal">Mascot Animal: <span class="required">*</span></label>
+            <input id="mascot-animal" name="mascot-animal" required type="text" value="Tiger">
+        </div>
 
-                <div class="form-section">
-                    <h4>Picture</h4>
-                    <label for="picture">Upload Picture:</label>
-                    <input accept="image/*" id="picture" name="picture" type="file">
+        <div class="form-section">
+            <h4>Picture</h4>
+            <label for="picture">Upload Picture:</label>
+            <input accept="image/*" id="picture" name="picture" type="file">
 
-                    <label for="picture-caption">Picture Caption: <span class="required">*</span></label>
-                    <input id="picture-caption" name="picture-caption" required type="text" value="Yoel Tecleab">
-                </div>
+            <label for="picture-caption">Picture Caption: <span class="required">*</span></label>
+            <input id="picture-caption" name="picture-caption" required type="text" value="Yoel Tecleab">
+        </div>
 
-                <div class="form-section">
-                    <h4>Background Information</h4>
-                    <label for="personal-background">Personal Background: <span class="required">*</span></label>
-                    <textarea id="personal-background" name="personal-background" required rows="3">My hobbies include playing tennis, watching movies and hanging out with friends.</textarea>
+        <div class="form-section">
+            <h4>Background Information</h4>
+            <label for="personal-background">Personal Background: <span class="required">*</span></label>
+            <textarea id="personal-background" name="personal-background" required rows="3">My hobbies include playing tennis, watching movies and hanging out with friends.</textarea>
 
-                    <label for="academic-background">Academic Background: <span class="required">*</span></label>
-                    <textarea id="academic-background" name="academic-background" required rows="4">I believe I am senior (confused because I am a part-time student and have no idea) majoring in Computer Science with tentative concentration in AI and Robotics (might end up changing to Software Engineering)</textarea>
-                </div>
+            <label for="professional-background">Professional Background: <span class="required">*</span></label>
+            <textarea id="professional-background" name="professional-background" required rows="3">I started working on Amazon warehouse shortly after I came to the US. In summer of 2022 I took a bootcamp course on Full Stack Java Development and has been working as Software Engineer at Bank of America since 2023.</textarea>
 
-                <div class="form-section">
-                    <h4>Courses</h4>
-                    <div id="courses-container"></div>
-                    <button class="btn-add-course" id="add-course-btn" type="button">+ Add Course</button>
-                </div>
+            <label for="academic-background">Academic Background: <span class="required">*</span></label>
+            <textarea id="academic-background" name="academic-background" required rows="4">I believe I am senior (confused because I am a part-time student and have no idea) majoring in Computer Science with tentative concentration in AI and Robotics (might end up changing to Software Engineering)</textarea>
 
-                <div class="form-buttons">
-                    <button class="btn-save" type="submit">Submit</button>
-                    <button class="btn-cancel" id="reset-btn" type="button">Reset</button>
-                    <button class="btn-clear" id="clear-btn" type="button">Clear</button>
-                    <button class="btn-generate-json" id="generate-json-btn" type="button">Generate JSON</button>
-                    <button class="btn-generate-html" id="generate-html-btn" type="button">Generate HTML</button>
-                </div>
-            </div>
-        </form>
-        <div data-include="components/footer.html"></div>
-        <script src="scripts/include.js"></script>
-        <script src="scripts/introduction.js"></script>
-        <script src="scripts/generate_json.js"></script>
-        <script src="scripts/generate_html.js"></script>
-    </body>
+            <label for="primary-computer">Primary Computer: <span class="required">*</span></label>
+            <textarea id="primary-computer" name="primary-computer" required rows="4">Apple - MacBook Pro M3 Max - Usually working from home, occasionally from coffee shop.</textarea>
+        </div>
+
+        <div class="form-section">
+            <h4>Courses</h4>
+            <div id="courses-container"></div>
+            <button class="btn-add-course" id="add-course-btn" type="button">+ Add Course</button>
+        </div>
+
+        <div class="form-section">
+            <h4>Quote</h4>
+            <label for="quote">Quote: <span class="required">*</span></label>
+            <textarea id="quote" name="quote" required rows="3">“We’re born alone, we live alone, and we die alone. Only through love and friendship can we create the illusion for a moment that we are not alone.”</textarea>
+
+            <label for="author">Quote Author: <span class="required">*</span></label>
+            <input id="author" name="author" required type="text" value="Orson Welles">
+        </div>
+
+        <div class="form-buttons">
+            <button class="btn-save" type="submit">Submit</button>
+            <button class="btn-cancel" id="reset-btn" type="button">Reset</button>
+            <button class="btn-clear" id="clear-btn" type="button">Clear</button>
+            <button class="btn-generate-json" id="generate-json-btn" type="button">Generate JSON</button>
+            <button class="btn-generate-html" id="generate-html-btn" type="button">Generate HTML</button>
+        </div>
+    </div>
+</form>
+<div data-include="components/footer.html"></div>
+<script src="scripts/include.js"></script>
+<script src="scripts/introduction.js"></script>
+<script src="scripts/generate_json.js"></script>
+<script src="scripts/generate_html.js"></script>
+</body>
 </html>

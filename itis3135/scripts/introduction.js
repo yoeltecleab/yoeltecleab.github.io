@@ -84,7 +84,11 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("mascot-animal").value = "Tiger";
             document.getElementById("picture-caption").value = "Yoel Tecleab";
             document.getElementById("personal-background").value = "My hobbies include playing tennis, watching movies and hanging out with friends.";
+            document.getElementById("professional-background").value = "I started working on Amazon warehouse shortly after I came to the US. In summer of 2022 I took a bootcamp course on Full Stack Java Development and has been working as Software Engineer at Bank of America since 2023.";
             document.getElementById("academic-background").value = "I believe I am senior (confused because I am a part-time student and have no idea) majoring in Computer Science with tentative concentration in AI and Robotics (might end up changing to Software Engineering)";
+            document.getElementById("primary-computer").value = "Apple - MacBook Pro M3 Max - Usually working from home, occasionally from coffee shop.";
+            document.getElementById("quote").value = "“We’re born alone, we live alone, and we die alone. Only through love and friendship can we create the illusion for a moment that we are not alone.”";
+            document.getElementById("author").value = "Orson Welles";
 
             // Reset file input
             document.getElementById("picture").value = "";
@@ -106,7 +110,11 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("mascot-animal").value = "";
             document.getElementById("picture-caption").value = "";
             document.getElementById("personal-background").value = "";
+            document.getElementById("professional-background").value = "";
             document.getElementById("academic-background").value = "";
+            document.getElementById("primary-computer").value = "";
+            document.getElementById("quote").value = "";
+            document.getElementById("author").value = "";
             document.getElementById("picture").value = "";
 
             // Clear all courses
@@ -165,11 +173,15 @@ document.addEventListener("DOMContentLoaded", () => {
             </figure>
             <ul>
                 <li><b>Personal Background:</b> ${formData.get("personal-background")}</li>
+                <li><b>Professional Background:</b> ${formData.get("professional-background")}</li>
                 <li><b>Academic Background:</b> ${formData.get("academic-background")}</li>
+                <li><b>Primary Computer:</b> ${formData.get("primary-computer")}</li>
                 <li><b>Courses:</b>
                     <ul>${courseList}</ul>
                 </li>
             </ul>
+            <span>
+            ${formData.get("quote")}<br><em>${formData.get("author")}</em></span>
             <button id="reset-to-form" class="btn-reset">Reset</button>
         `;
 

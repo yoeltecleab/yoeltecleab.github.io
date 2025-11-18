@@ -28,17 +28,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function extractFormData() {
         // Extract personal details
-        const firstName = document.getElementById("first-name")?.value || "";
-        const middleName = document.getElementById("middle-name")?.value || "";
-        const lastName = document.getElementById("last-name")?.value || "";
+        const firstName = document.getElementById("first-name") ? document.getElementById("first-name").value : "";
+        const middleName = document.getElementById("middle-name") ? document.getElementById("middle-name").value : "";
+        const lastName = document.getElementById("last-name") ? document.getElementById("last-name").value : "";
 
         // Extract mascot info
-        const mascotAdjective = document.getElementById("mascot-adjective")?.value || "";
-        const mascotAnimal = document.getElementById("mascot-animal")?.value || "";
+        const mascotAdjective = document.getElementById("mascot-adjective") ? document.getElementById("mascot-adjective").value : "";
+        const mascotAnimal = document.getElementById("mascot-animal") ? document.getElementById("mascot-animal").value : "";
 
         // Extract background info
-        const personalBackground = document.getElementById("personal-background")?.value || "";
-        const academicBackground = document.getElementById("academic-background")?.value || "";
+        const personalBackground = document.getElementById("personal-background") ? document.getElementById("personal-background").value : "";
+        const academicBackground = document.getElementById("academic-background") ? document.getElementById("academic-background").value : "";
+        const professionalBackground = document.getElementById("professional-background") ? document.getElementById("professional-background").value : "";
+        const primaryComputer = document.getElementById("primary-computer") ? document.getElementById("primary-computer").value : "";
+        const quote = document.getElementById("quote") ? document.getElementById("quote").value : "";
+        const author = document.getElementById("author") ? document.getElementById("author").value : "";
 
         // Extract image info
         const pictureCaption = document.getElementById("picture-caption")?.value || "";
@@ -96,7 +100,6 @@ document.addEventListener("DOMContentLoaded", () => {
         // Build the JSON object matching the specified format
         return {
             firstName: firstName,
-            preferredName: "",
             middleInitial: middleName ? middleName.charAt(0) : "",
             lastName: lastName,
             divider: "|",
@@ -104,14 +107,13 @@ document.addEventListener("DOMContentLoaded", () => {
             mascotAnimal: mascotAnimal,
             image: imageSrc,
             imageCaption: pictureCaption,
-            personalStatement: "",
             personalBackground: personalBackground,
-            professionalBackground: "",
+            professionalBackground: professionalBackground,
             academicBackground: academicBackground,
-            subjectBackground: "",
-            primaryComputer: "",
+            primaryComputer: primaryComputer,
             courses: courses,
-            links: []
+            quote: quote,
+            author: author,
         };
     }
 
