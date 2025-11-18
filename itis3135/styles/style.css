@@ -104,6 +104,7 @@ h2 {
     font-weight: 700;
     margin-bottom: 0.7em;
     letter-spacing: 0.01em;
+    text-align: center;
 }
 
 p {
@@ -495,6 +496,9 @@ h3 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    margin-top: 48px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid #3b82f6;
 }
 
 #intro-form .form-section {
@@ -512,6 +516,8 @@ h4 {
     margin: 0 0 20px 0;
     padding-bottom: 12px;
     border-bottom: 2px solid #3b82f6;
+    padding-left: 12px;
+    border-left: 4px solid #8b5cf6;
 }
 
 #intro-form .course-entry {
@@ -791,10 +797,6 @@ h4 {
 }
 
 /* Adjust main heading for JSON view */
-h2 {
-    text-align: center;
-}
-
 main > p {
     text-align: center;
     font-size: 1.1rem;
@@ -803,25 +805,6 @@ main > p {
 }
 
 /* Project Overview Page Styles */
-h3 {
-    color: #1e293b;
-    font-size: 1.8rem;
-    font-weight: 700;
-    margin-top: 48px;
-    margin-bottom: 24px;
-    padding-bottom: 12px;
-    border-bottom: 3px solid #3b82f6;
-}
-
-h4 {
-    color: #334155;
-    font-size: 1.4rem;
-    font-weight: 600;
-    margin-top: 32px;
-    margin-bottom: 16px;
-    padding-left: 12px;
-    border-left: 4px solid #8b5cf6;
-}
 
 section p {
     text-align: left;
