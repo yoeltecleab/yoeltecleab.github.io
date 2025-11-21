@@ -798,7 +798,7 @@ h4 {
 
 /* Adjust main heading for JSON view */
 main > p {
-    text-align: center;
+    text-align: left;
     font-size: 1.1rem;
     color: #475569;
     margin: 16px 0;
